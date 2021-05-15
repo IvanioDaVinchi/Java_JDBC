@@ -301,6 +301,25 @@ public class Database
             e.printStackTrace();
         }
     }
+    public void AddNewSupplier()
+    {
+        try
+        {
+            PreparedStatement preparedStatement = null;
+            Connection con = DriverManager.getConnection(url, login, password);
+            String sql = "INSERT INTO Suppliers VALUE (DEFAULT,?)";
+            preparedStatement = con.prepareStatement(sql);
+            System.out.println("Введите наименовнаие нового поставщика:\n");
+            String name = in.next();
+
+            preparedStatement.setString(1, name);
+            preparedStatement.execute();
+            System.out.println("Новая запись добавлена!");
+        }
+        catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
     public void DeleteFromDB()
     {
         PreparedStatement preparedStatement = null;
@@ -319,7 +338,7 @@ public class Database
             e.printStackTrace();
         }
     }
-    public void UpdateFromDB()
+    public void UpdatePriceFromDB()
     {
         System.out.println("Введите номер машины, которую хотите изменить:");
         String id = in.next();
