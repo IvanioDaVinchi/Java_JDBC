@@ -111,6 +111,6 @@ public class Main
     static void UpdateFromDB()
     {
         Database db = new Database();
-        db.UpdateFromDB();
+        db.UpdatePriceFromDB();
     }
 }
